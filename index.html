@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alberto CV</title>
+<meta name="description" content="Alberto's CV: IT support, systems and networks, heading into cybersecurity.">
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
+<style>
+/* Layout: the PDF CV, alive. Black sidebar + white sheet; every claim can open to its story. */
+:root{
+  --side:#000; --side-fg:#d0d0d0; --side-soft:#9a9a9a; --side-rule:#3a3a3a;
+  --bg:#f3f4f1; --sheet:#ffffff; --fg:#1f2021; --muted:#5f6368; --rule:#d7d7d7;
+  --green:#62be1f; --green-ink:#3f8a0c; --link:#0563c1; --pill:#e7f1e2; --pill-fg:#303030;
+  --open:#f6f9f3;
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0d0c; --sheet:#151715; --fg:#e4e6e1; --muted:#a3a8a0; --rule:#2e322d;
+  --green-ink:#7fd23e; --link:#6aa9ff; --pill:#22301b; --pill-fg:#d9e8cf; --open:#1b2019; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0d0c; --sheet:#151715; --fg:#e4e6e1; --muted:#a3a8a0; --rule:#2e322d;
+  --green-ink:#7fd23e; --link:#6aa9ff; --pill:#22301b; --pill-fg:#d9e8cf; --open:#1b2019; color-scheme:dark}
+*{box-sizing:border-box}
+.about{margin-top:10px}.about summary b{color:var(--green-ink)}.about .story p{margin:0 0 8px}.about .story p:last-child{margin:0}
+#cv-fa{font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.75}
+#cv-fa main h2,#cv-fa aside h2{letter-spacing:0}
+#cv-fa .name h1{line-height:1.35}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5}
+.page{max-width:1080px;margin:0 auto;padding-block:24px;padding-inline:16px}
+.cv{display:grid;grid-template-columns:300px minmax(0,1fr);background:var(--sheet);border-top:8px solid var(--green);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+@media (max-width:820px){.cv{grid-template-columns:minmax(0,1fr)}}
+aside{background:var(--side);color:var(--side-fg);padding:28px 26px;display:flex;flex-direction:column;gap:26px}
+main{padding:28px 32px;display:flex;flex-direction:column;gap:30px;min-width:0}
+@media (max-width:520px){main{padding:24px 18px}aside{padding:24px 18px}}
+.name{text-align:center}
+.name h1{margin:0;color:#fff;font-size:34px;line-height:1.1;font-weight:700;text-wrap:balance}
+.name .pref{color:var(--side-soft);font-style:italic;font-size:13px;margin-top:4px}
+.lang{display:flex;justify-content:center;gap:6px;margin-top:14px}
+.lang button{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;padding:4px 12px;border-radius:999px;border:1px solid var(--side-rule);background:transparent;color:var(--side-fg);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#000}
+.lang button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.where{font-size:14px;display:flex;flex-direction:column;gap:2px}
+aside h2,main h2{margin:0;color:var(--green);font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+aside h2{padding-bottom:8px;border-bottom:1px solid var(--side-rule);margin-bottom:10px}
+main h2{font-size:21px;letter-spacing:.02em;padding-bottom:10px;border-bottom:1px solid var(--rule);margin-bottom:14px}
+aside ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+aside a{color:#7fb6ff;word-break:break-all}
+.note{font-size:11px;font-style:italic;color:var(--side-soft)}
+details{border-radius:6px}
+summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";flex:none;width:16px;height:16px;margin-top:2px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);font-size:13px;line-height:13px;text-align:center;font-weight:700}
+details[open]>summary::before{content:"\2212"}
+.story{margin-block:6px 4px;margin-inline:24px 0;font-size:13.5px;line-height:1.55}
+aside .story{color:var(--side-fg)}
+main .story{background:var(--open);padding:10px 14px;border-radius:6px;color:var(--fg)}
+aside summary b{color:#fff}
+aside summary span{display:block;font-size:12.5px;color:var(--side-soft)}
+.headline{font-weight:700}
+.motto{color:var(--muted);font-style:italic}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pills span{background:var(--pill);color:var(--pill-fg);font-weight:700;font-size:12.5px;padding:3px 12px;border-radius:999px}
+.job{display:flex;flex-direction:column;gap:2px;padding-block:6px}
+.job+.job{border-top:1px dashed var(--rule);padding-top:12px;margin-top:6px}
+.jobhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 16px;align-items:baseline}
+.org{color:var(--green-ink);font-weight:700;font-size:17px}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.role{font-weight:700}
+.role em{font-style:normal;font-weight:400;color:var(--muted);font-size:13.5px}
+main ul{margin:4px 0;padding-inline-start:20px}
+main li::marker{color:var(--green)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px}
+@media (max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+.item summary b{display:block}
+.item summary .meta{display:block}
+.item p{margin:2px 0 0;font-size:14px}
+.proj summary p{margin-block:2px 0;margin-inline:0;font-size:14px;color:var(--muted)}
+main a{color:var(--link)}
+.foot{color:var(--muted);font-size:12.5px;text-align:center;padding-block:14px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:no-preference){details[open] .story{animation:in .18s ease-out}@keyframes in{from{opacity:.4;transform:translateY(-3px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===================== ENGLISH ===================== -->
+<div class="cv" id="cv-en" lang="en">
+<aside>
+  <div class="name">
+    <h1>Alberto</h1>
+    <div class="lang"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="es" aria-pressed="false">ES</button><button type="button" data-l="fa" aria-pressed="false">FA</button></div>
+  </div>
+  <div class="where"><span>Madrid, Spain</span></div>
+  <section>
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener">github.com/albeen-sknight</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Languages</h2>
+    <ul><li>Persian - Native</li><li>Spanish - Bilingual</li><li>English - C1 (IELTS 7.0)</li></ul>
+  </section>
+  <section>
+    <h2>Personal skills</h2>
+    <ul>
+      <li><details><summary><div><b>Calm under pressure</b><span>A nosebleed on a Cruz Roja trip</span></div></summary>
+        <p class="story">On a Cruz Roja weekend at Albergue Colladito, a girl in my group started bleeding from her nose. I kept her calm, tilted her head slightly down, plugged her nose and pressed on the soft part until it stopped. Her mum was worried after the first call, so I spoke to her myself: everything was under control, a doctor would check her before she went home, and I'd keep her updated the whole way. I did.</p></details></li>
+      <li><details><summary><div><b>Reliable and punctual</b><span>My first job, in Seville</span></div></summary>
+        <p class="story">A few weeks into my first contract, I was told I'd be in Seville on Wednesday. I was up at 6 and on the 8 AM train. The train ran an hour late, so I kept my managers updated the whole way: how late we were, when I got into a taxi, how many minutes I was from the site. Once there I went straight to work, installed network equipment and helped with a device migration on a call with a colleague, with no break until it was done at 5. I made the train home with ten minutes to spare.</p></details></li>
+      <li><details><summary><div><b>Integrity</b><span>A payment error</span></div></summary>
+        <p class="story">After my contract ended, a salary payment reached my account by mistake. I told the company and gave it back. It was simply the right thing to do.</p></details></li>
+      <li><details><summary><div><b>Clear communication</b><span>Onsite user support</span></div></summary>
+        <p class="story">Supporting a client's staff onsite, most of the job was talking to people: explaining what had gone wrong in plain words, telling them honestly how long a fix would take, and getting back to them quickly.</p></details></li>
+      <li><details><summary><div><b>Difficult customers</b><span>Atento call centre</span></div></summary>
+        <p class="story">At Atento, for Securitas Direct, a call that could easily run to 15 minutes had to come in at around 5. I kept callers on track and used professional language throughout. When someone called in furious, I calmed them down first, then offered a solution.</p></details></li>
+      <li><details><summary><div><b>Proactive</b><span>Quiet weeks at Noneotech</span></div></summary>
+        <p class="story">After two quiet weeks I joked with my manager about going door to door to find clients myself. That same day he sent me to Valladolid for Friday, and later to Seville: "You wanted work, right?" Yes sir, I did. When my contract ended, he offered me occasional evening and weekend jobs and told me that, for someone young with no experience, I adapt fast and I'm willing. At Centric too, I asked for extra tasks as soon as mine were done.</p></details></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Volunteering</h2>
+    <ul>
+      <li><details><summary><div><b>Cruz Roja Juventud</b><span>PINEO Volunteer | Activity Planning and Team Coordination · Apr 2024 - present · Project coordinator (2026/27): 3 volunteers and 7 children</span></div></summary>
+        <p class="story">PINEO runs recreational and educational activities for children and teenagers. I help prepare weekly sessions, materials and the space, plan activities with the volunteer team, keep activity records and help new volunteers settle in. This year (2026/27) I'm a project coordinator at one branch, with a team of 3 volunteers and 7 children, making sure sessions are prepared ahead and shaped around what the group enjoys.</p></details></li>
+      <li><b style="color:#fff">United Networks</b><br><span class="note" style="font-style:normal">Training and mentoring | 2022 - 2023</span></li>
+    </ul>
+  </section>
+</aside>
+
+<main>
+  <section>
+    <h2>Professional profile</h2>
+    <p class="headline">IT &amp; Systems Professional | Cybersecurity Foundations (SOC) | Path Toward AppSec &amp; WAF</p>
+    <p>I work in IT support, systems and networks, and I'm in my final year of ASIR. In summer 2026 I worked on client networks across Madrid and Seville. In my own time I built a virtual company network, put a security control room next to it, then broke in to see if I'd catch myself. Nine times out of ten, I did. <b>Today:</b> IT Support, Systems and Networks. <b>Next:</b> security operations.</p>
+    <details class="about"><summary><b>More about me</b></summary><div class="story"><p>I moved to Spain at 13 without proper Spanish or English. Vocational training became the route that opened my career: SMR took me to Malta for my Erasmus+ placement, and now I'm finishing ASIR.</p><p>I remember walking beneath the Cuatro Torres in Madrid and deciding where I wanted to end up: systems and networking first, SOC after that, and one day application security and WAF. Deloitte's CyberSOC track made that path feel real, because I met people who'd started exactly where I am.</p><p>After the program I didn't want to spend the summer waiting. Noneotech gave me a chance without much experience, and I knew that trust had to be earned. If something needed doing, my answer was usually yes.</p><p>In my own time I build the things I want to work on: SIEM dashboards, Windows log investigations, a WAF I attacked and tuned myself, and a small company network with its own security control room.</p><p><b>SOC first. Strong foundations first. AppSec and WAF later.</b></p></div></details>
+    <p class="motto">"I learn, I lead, I advance"</p>
+    <div class="pills"><span>Windows / Linux</span><span>Active Directory</span><span>Microsoft 365</span><span>Networking</span><span>Cisco / Meraki</span><span>SIEM (Splunk / Elastic)</span><span>Log analysis</span><span>MITRE ATT&amp;CK</span><span>WAF / ModSecurity</span></div>
+  </section>
+
+  <section>
+    <h2>Professional experience</h2>
+    <p class="hint">Tap any role to see more.</p>
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Noneotech Global Technologies</span><span class="meta">Madrid / Seville | Jun 2026 - Sep 2026</span></div>
+      <div class="role">On Site Support Engineer <em>· Contract</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Onsite IT support and field engineering at client sites across Madrid and Seville, working with remote engineering teams</li>
+        <li>Installed and replaced Cisco and Meraki routers, switches and wireless access points</li>
+        <li>Supported remote engineers during device configuration, network changes, connectivity tests and troubleshooting</li>
+        <li>Hardware installation, cabling checks, equipment validation and service documentation</li>
+        <li>Temporary onsite support for a client's users: Windows, Microsoft 365, Outlook, Teams, printers, laptops and connectivity</li>
+        <li>Managed tickets, coordinated with client contacts and escalated when more support was needed</li>
+        <li>Offered occasional extra work after my contract ended</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Deloitte</span><span class="meta">Madrid | May 2026</span></div>
+      <div class="role">Technology Trainee, CyberSOC Track <em>· Internship (FFE)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Technology program on the CyberSOC track, with exposure to consulting, corporate technology, cybersecurity and teamwork across disciplines</li>
+        <li>Completed the required training plus extra optional technical courses</li>
+        <li>Team web app project; I worked on frontend, usability and presentation</li>
+        <li>Helped other participants and joined in team problem solving</li>
+        <li>Afterwards kept learning SecOps, SIEM, Windows Event Logs and incident response on my own</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Atento - Securitas Direct</span><span class="meta">Madrid | Jul 2025 - Sep 2025</span></div>
+      <div class="role">Customer Support Agent <em>· Part time</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Customer calls and basic technical support for security services, in a busy environment</li>
+        <li>Troubleshot issues, documented them clearly and escalated complex cases to specialist teams</li>
+        <li>Kept calls short and on track, and calmed frustrated callers before solving</li>
+        <li>Worked across several internal systems under strict quality, confidentiality and security rules</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Centric IT Solutions, Malta</span><span class="meta">St. Paul's Bay | Mar 2025 - May 2025</span></div>
+      <div class="role">IT Technician <em>· Erasmus+ internship (FCT)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>My first hands on IT role, abroad, supporting hardware, systems and daily operations</li>
+        <li>Diagnosed hardware and software faults, replaced components and set up computers</li>
+        <li>Maintenance, equipment preparation and inventory</li>
+        <li>Asked for extra work after finishing my own, which gave me broader experience</li></ul></div></details></div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>Education</h2>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <details class="item"><summary><div><b>ASIR - Network Systems Administration</b><span class="meta">IES Clara del Rey | 2025 - 2027</span><p>Running a company's IT: servers, networks, user accounts and security.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">A two year higher vocational degree (EQF level 5, short cycle higher education). It trains you to set up, run and protect a company's IT systems.</p><ul>
+<li><b>Servers:</b> installing, configuring and running Windows Server and Linux, with user accounts, permissions and Active Directory domains</li>
+<li><b>Networks:</b> designing and managing company networks: addressing, routing, switches, VLANs, and services like DNS, DHCP, web, mail and file sharing</li>
+<li><b>Databases:</b> designing databases and running database servers</li>
+<li><b>Web:</b> deploying and hosting web applications</li>
+<li><b>Security and availability:</b> firewalls, VPNs, backups, protecting stored data and keeping systems running when something fails</li>
+<li>A final project and a company placement (FFE)</li></ul>
+<p style="margin:6px 0 0">It prepares you for roles like systems administrator, network technician or IT support technician.</p></div></details>
+        <details class="item"><summary><div><b>SMR - Microcomputer Systems and Networks</b><span class="meta">IES Barajas | 2023 - 2025</span><p>Building and repairing computers, small networks and user support. Erasmus+ in Malta.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">A two year intermediate vocational degree (EQF level 4). It's the hands on technician level: making computers and small office networks work.</p><ul>
+<li><b>Hardware:</b> building, upgrading and repairing PCs, and diagnosing faults</li>
+<li><b>Operating systems:</b> installing and configuring Windows and Linux, first on single computers, then on small networks with a server</li>
+<li><b>Small networks:</b> cabling, and setting up switches, routers and WiFi for an office</li>
+<li><b>Network services:</b> file sharing, DNS, DHCP, web and proxy servers, at an introductory level</li>
+<li><b>Security basics:</b> antivirus, backups and user permissions</li>
+<li>Office software and simple web applications</li>
+<li>A company placement (FCT), which I did in Malta through Erasmus+</li></ul>
+<p style="margin:6px 0 0">It prepares you for roles like IT support technician, helpdesk or PC and network installer.</p></div></details>
+      </div>
+    </div>
+    <div>
+      <h2>Certifications</h2>
+      <p class="meta" style="margin:0 0 6px">LinkedIn Learning | 2026</p>
+      <ul style="padding-inline-start:18px;margin:0">
+        <li>SecOps Essentials: Detection and Response</li>
+        <li>Introduction to SIEM</li>
+        <li>Cybersecurity Threat Landscape</li>
+        <li>Cybersecurity Foundations: GRC</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Featured technical projects</h2>
+    <div class="two">
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/soc-in-a-box" target="_blank" rel="noopener">SOC in a Box</a></b><p>A pretend company with a security control room watching it. I broke in ten ways; nine set off an alarm.</p></div></summary>
+        <div class="story">I built a small Windows company (a server, two staff laptops and a web shop) and sent all their activity logs to Splunk, a security monitoring tool. Then I wrote ten detections for real attacker moves, from password guessing to wiping logs, and attacked my own company. Nine alerts fired and buzzed my phone. The tenth was stopped by Windows' own protection before it could even start, which was the best finding of the lot. I also found the company had no account lockout policy.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/waf-flight-recorder" target="_blank" rel="noopener">WAF Flight Recorder</a></b><p>A security guard for websites, tuned to stop attackers without turning real customers away.</p></div></summary>
+        <div class="story">I put a real web application firewall in front of a deliberately vulnerable shop, sent classic attacks at it, wrote my own rules and broke them on purpose. I found a real false alarm, a customer's newsletter link blocked as an attack, and fixed it with the narrowest possible exception. 70 automated tests rebuild the lab and check every block and every allow.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener">Guided security labs</a></b><p>Practice spotting suspicious activity in a computer's activity records.</p></div></summary>
+        <div class="story">Guided Hack The Box Academy labs: dashboards for <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-all-users" target="_blank" rel="noopener">failed logins</a> and <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-disableed-users" target="_blank" rel="noopener">attempts on closed accounts</a>, an investigation into <a href="https://github.com/albeen-sknight/windows-event-log-investigation" target="_blank" rel="noopener">who changed a security setting</a>, and a lab on the <a href="https://github.com/albeen-sknight/analysing-evil-with-sysmon-event-logs" target="_blank" rel="noopener">traces attacks leave</a>.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/applyone-" target="_blank" rel="noopener">ApplyOne</a></b><p>My own tool for tracking job applications, built so the private side stays truly private.</p></div></summary>
+        <div class="story">A job application workspace I host myself: a public portfolio page out front and a private workspace only I can open. It reads my CV, matches it against job ads, tracks every application and helps with cover letters and interview prep. Passwords and keys stay out of the code, every private page checks who's asking, and the public side can't see into the private one. After launch I fixed every warning GitHub's code scanner raised and set up automatic updates. <a href="https://applyone.pages.dev" target="_blank" rel="noopener">Live site</a></div></details>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- ===================== ESPAÑOL ===================== -->
+<div class="cv" id="cv-es" lang="es" hidden>
+<aside>
+  <div class="name">
+    <h1>Alberto</h1>
+    <div class="lang"><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="es" aria-pressed="true">ES</button><button type="button" data-l="fa" aria-pressed="false">FA</button></div>
+  </div>
+  <div class="where"><span>Madrid, España</span></div>
+  <section>
+    <h2>Enlaces</h2>
+    <ul>
+      <li><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener">github.com/albeen-sknight</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Idiomas</h2>
+    <ul><li>Persa - Nativo</li><li>Español - Bilingüe</li><li>Inglés - C1 (IELTS 7.0)</li></ul>
+  </section>
+  <section>
+    <h2>Competencias personales</h2>
+    <ul>
+      <li><details><summary><div><b>Calma bajo presión</b><span>Una hemorragia nasal en Cruz Roja</span></div></summary>
+        <p class="story">En un fin de semana de Cruz Roja en el Albergue Colladito, a una niña de mi grupo le empezó a sangrar la nariz. La mantuve tranquila, le incliné un poco la cabeza hacia abajo, le taponé la nariz y presioné la parte blanda hasta que paró. Su madre se había quedado preocupada tras la primera llamada, así que hablé yo con ella: todo estaba bajo control, un médico la revisaría antes de volver a casa y yo la mantendría informada en todo momento. Y así lo hice.</p></details></li>
+      <li><details><summary><div><b>Fiable y puntual</b><span>Mi primer trabajo, en Sevilla</span></div></summary>
+        <p class="story">A las pocas semanas de mi primer contrato me dijeron que el miércoles iba a Sevilla. Me levanté a las 6 y cogí el tren de las 8. El tren llegó con una hora de retraso, así que mantuve informados a mis responsables todo el camino: cuánto retraso llevábamos, cuándo cogí el taxi, a cuántos minutos estaba del cliente. Al llegar me puse a trabajar directamente: instalé equipos de red y ayudé en una migración de dispositivos en llamada con un compañero, sin descanso hasta terminar a las 5. Cogí el tren de vuelta con diez minutos de margen.</p></details></li>
+      <li><details><summary><div><b>Integridad</b><span>Un error en un pago</span></div></summary>
+        <p class="story">Después de terminar mi contrato me llegó por error un pago de nómina. Avisé a la empresa y lo devolví. Era sencillamente lo correcto.</p></details></li>
+      <li><details><summary><div><b>Comunicación clara</b><span>Soporte in situ</span></div></summary>
+        <p class="story">Dando soporte in situ al personal de un cliente, gran parte del trabajo era hablar con la gente: explicar qué había fallado con palabras sencillas, decir con sinceridad cuánto iba a tardar el arreglo y responder rápido.</p></details></li>
+      <li><details><summary><div><b>Clientes difíciles</b><span>Call center de Atento</span></div></summary>
+        <p class="story">En Atento, para Securitas Direct, una llamada que podía alargarse 15 minutos tenía que quedarse en unos 5. Mantenía al cliente centrado y usaba siempre un lenguaje profesional. Si alguien llamaba muy enfadado, primero lo calmaba y después le ofrecía una solución.</p></details></li>
+      <li><details><summary><div><b>Proactivo</b><span>Semanas tranquilas en Noneotech</span></div></summary>
+        <p class="story">Tras dos semanas tranquilas, bromeé con mi responsable sobre ir puerta a puerta a buscar clientes yo mismo. Ese mismo día me mandó a Valladolid el viernes, y después a Sevilla: "Querías trabajo, ¿no?" Sí señor, quería. Al terminar el contrato me ofreció trabajos puntuales de tarde, noche o fin de semana y me dijo que, para ser joven y no tener experiencia, me adapto rápido y tengo voluntad. En Centric también pedía tareas extra en cuanto terminaba las mías.</p></details></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Voluntariado</h2>
+    <ul>
+      <li><details><summary><div><b>Cruz Roja Juventud</b><span>Voluntario PINEO | Planificación de actividades y coordinación de equipo · abr 2024 - actualidad · Referente (2026/27): 3 voluntarios y 7 niños</span></div></summary>
+        <p class="story">PINEO organiza actividades recreativas y educativas para niños y adolescentes. Ayudo a preparar las sesiones semanales, los materiales y el espacio, planifico actividades con el equipo de voluntarios, llevo registros de actividad y ayudo a integrarse a los nuevos voluntarios. Este curso (2026/27) soy referente del proyecto en una sede, con un equipo de 3 voluntarios y 7 niños, para que las sesiones estén preparadas con antelación y adaptadas a lo que le gusta al grupo.</p></details></li>
+      <li><b style="color:#fff">United Networks</b><br><span class="note" style="font-style:normal">Formación y mentoring | 2022 - 2023</span></li>
+    </ul>
+  </section>
+</aside>
+
+<main>
+  <section>
+    <h2>Perfil profesional</h2>
+    <p class="headline">Profesional de IT y Sistemas | Base en Ciberseguridad (SOC) | Rumbo a AppSec y WAF</p>
+    <p>Trabajo en soporte IT, sistemas y redes y estoy en el último año de ASIR. En verano de 2026 trabajé en redes de clientes en Madrid y Sevilla. Por mi cuenta monté la red virtual de una pequeña empresa, le puse al lado una sala de control de seguridad y luego entré a la fuerza para ver si me pillaba. Nueve de cada diez veces, lo conseguí. <b>Hoy:</b> Soporte IT, Sistemas y Redes. <b>Después:</b> operaciones de seguridad.</p>
+    <details class="about"><summary><b>Más sobre mí</b></summary><div class="story"><p>Llegué a España con 13 años sin hablar bien español ni inglés. La FP fue el camino que abrió mi carrera: SMR me llevó a Malta con Erasmus+ y ahora estoy terminando ASIR.</p><p>Recuerdo pasear bajo las Cuatro Torres de Madrid y decidir hasta dónde quería llegar: primero sistemas y redes, después SOC y algún día seguridad de aplicaciones y WAF. El track CyberSOC de Deloitte hizo que ese camino se sintiera real, porque conocí a gente que empezó exactamente donde estoy yo.</p><p>Después del programa no quería pasar el verano esperando. Noneotech me dio una oportunidad sin apenas experiencia, y sabía que esa confianza había que ganársela. Si algo había que hacerlo, mi respuesta solía ser sí.</p><p>En mi tiempo libre construyo aquello en lo que quiero trabajar: dashboards SIEM, investigaciones de logs de Windows, un WAF que ataqué y ajusté yo mismo, y la red de una pequeña empresa con su propia sala de control de seguridad.</p><p><b>Primero SOC. Primero bases sólidas. Después AppSec y WAF.</b></p></div></details>
+    <p class="motto">"Aprendo, lidero, avanzo"</p>
+    <div class="pills"><span>Windows / Linux</span><span>Active Directory</span><span>Microsoft 365</span><span>Redes</span><span>Cisco / Meraki</span><span>SIEM (Splunk / Elastic)</span><span>Análisis de logs</span><span>MITRE ATT&amp;CK</span><span>WAF / ModSecurity</span></div>
+  </section>
+
+  <section>
+    <h2>Experiencia profesional</h2>
+    <p class="hint">Pulsa un puesto para ver más.</p>
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Noneotech Global Technologies</span><span class="meta">Madrid / Sevilla | jun 2026 - sep 2026</span></div>
+      <div class="role">Ingeniero de Soporte On Site <em>· Contrato</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Soporte IT in situ e ingeniería de campo en sedes de clientes de Madrid y Sevilla, junto a equipos de ingeniería remotos</li>
+        <li>Instalación y sustitución de routers, switches y puntos de acceso Cisco y Meraki</li>
+        <li>Apoyo a ingenieros remotos en configuración de equipos, cambios de red, pruebas de conectividad y resolución de problemas</li>
+        <li>Instalación de hardware, revisión de cableado, validación de equipos y documentación del servicio</li>
+        <li>Soporte temporal in situ a los usuarios de un cliente: Windows, Microsoft 365, Outlook, Teams, impresoras, portátiles y conectividad</li>
+        <li>Gestión de tickets, coordinación con el cliente y escalado cuando hacía falta más soporte</li>
+        <li>Me ofrecieron trabajos puntuales tras terminar el contrato</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Deloitte</span><span class="meta">Madrid | may 2026</span></div>
+      <div class="role">Trainee de Tecnología, Track CyberSOC <em>· Prácticas (FFE)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Programa tecnológico en el track CyberSOC: consultoría, tecnología corporativa, ciberseguridad y trabajo en equipos multidisciplinares</li>
+        <li>Formación obligatoria completada, más cursos técnicos opcionales</li>
+        <li>Proyecto de app web en equipo; trabajé en frontend, usabilidad y presentación</li>
+        <li>Apoyo a otros participantes y resolución de problemas en equipo</li>
+        <li>Después seguí formándome por mi cuenta en SecOps, SIEM, Windows Event Logs y respuesta a incidentes</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Atento - Securitas Direct</span><span class="meta">Madrid | jul 2025 - sep 2025</span></div>
+      <div class="role">Agente de Atención al Cliente <em>· Media jornada</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Atención de llamadas y soporte técnico básico de servicios de seguridad, en un entorno con mucho volumen</li>
+        <li>Resolución de incidencias, documentación clara y escalado de casos complejos a equipos especializados</li>
+        <li>Llamadas cortas y centradas; calmar a clientes molestos antes de resolver</li>
+        <li>Trabajo con varios sistemas internos bajo estrictas normas de calidad, confidencialidad y seguridad</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Centric IT Solutions, Malta</span><span class="meta">St. Paul's Bay | mar 2025 - may 2025</span></div>
+      <div class="role">Técnico IT <em>· Prácticas Erasmus+ (FCT)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>Mi primera experiencia práctica en IT, en el extranjero, con hardware, sistemas y operaciones del día a día</li>
+        <li>Diagnóstico de averías, sustitución de componentes y puesta a punto de equipos</li>
+        <li>Mantenimiento, preparación de equipos e inventario</li>
+        <li>Pedía tareas extra al terminar las mías, lo que me dio una experiencia más amplia</li></ul></div></details></div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>Formación</h2>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <details class="item"><summary><div><b>ASIR - Administración de Sistemas Informáticos en Red</b><span class="meta">IES Clara del Rey | 2025 - 2027</span><p>La informática de una empresa por dentro: servidores, redes, cuentas de usuario y seguridad.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">Grado superior de dos años (nivel 5 del Marco Europeo de Cualificaciones, educación superior de ciclo corto). Forma para montar, mantener y proteger los sistemas informáticos de una empresa.</p><ul>
+<li><b>Servidores:</b> instalar, configurar y mantener Windows Server y Linux, con cuentas de usuario, permisos y dominios de Active Directory</li>
+<li><b>Redes:</b> diseñar y gestionar redes de empresa: direccionamiento, enrutamiento, switches, VLAN y servicios como DNS, DHCP, web, correo y ficheros compartidos</li>
+<li><b>Bases de datos:</b> diseñarlas y administrar servidores de bases de datos</li>
+<li><b>Web:</b> desplegar y alojar aplicaciones web</li>
+<li><b>Seguridad y disponibilidad:</b> firewalls, VPN, copias de seguridad, protección de los datos almacenados y sistemas que siguen funcionando aunque algo falle</li>
+<li>Un proyecto final y formación en empresa (FFE)</li></ul>
+<p style="margin:6px 0 0">Prepara para puestos como administrador de sistemas, técnico de redes o técnico de soporte IT.</p></div></details>
+        <details class="item"><summary><div><b>SMR - Sistemas Microinformáticos y Redes</b><span class="meta">IES Barajas | 2023 - 2025</span><p>Montar y reparar equipos, redes pequeñas y soporte a usuarios. Erasmus+ en Malta.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">Grado medio de dos años (nivel 4 del Marco Europeo de Cualificaciones). Es el nivel de técnico práctico: hacer que funcionen los ordenadores y las redes de una oficina.</p><ul>
+<li><b>Hardware:</b> montar, ampliar y reparar equipos, y diagnosticar averías</li>
+<li><b>Sistemas operativos:</b> instalar y configurar Windows y Linux, primero en equipos sueltos y luego en redes pequeñas con un servidor</li>
+<li><b>Redes pequeñas:</b> cableado y configuración de switches, routers y WiFi para una oficina</li>
+<li><b>Servicios de red:</b> ficheros compartidos, DNS, DHCP, web y proxy, a nivel introductorio</li>
+<li><b>Seguridad básica:</b> antivirus, copias de seguridad y permisos de usuario</li>
+<li>Ofimática y aplicaciones web sencillas</li>
+<li>Formación en empresa (FCT), que hice en Malta con Erasmus+</li></ul>
+<p style="margin:6px 0 0">Prepara para puestos como técnico de soporte IT, helpdesk o instalador de equipos y redes.</p></div></details>
+      </div>
+    </div>
+    <div>
+      <h2>Certificaciones</h2>
+      <p class="meta" style="margin:0 0 6px">LinkedIn Learning | 2026</p>
+      <ul style="padding-inline-start:18px;margin:0">
+        <li>SecOps Essentials: detección y respuesta</li>
+        <li>Introducción a SIEM</li>
+        <li>Panorama de amenazas de ciberseguridad</li>
+        <li>Fundamentos de ciberseguridad: GRC</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Proyectos técnicos destacados</h2>
+    <div class="two">
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/soc-in-a-box" target="_blank" rel="noopener">SOC in a Box</a></b><p>Una empresa ficticia con una sala de control de seguridad vigilándola. Entré de diez formas; nueve hicieron saltar la alarma.</p></div></summary>
+        <div class="story">Monté una pequeña empresa con Windows (un servidor, dos portátiles y una tienda web) y envié toda su actividad a Splunk, una herramienta de vigilancia de seguridad. Escribí diez detecciones para movimientos reales de atacantes, desde adivinar contraseñas hasta borrar registros, y ataqué mi propia empresa. Nueve alertas saltaron en mi móvil. La décima la paró la propia protección de Windows antes de empezar, que fue el mejor hallazgo de todos. También descubrí que la empresa no tenía política de bloqueo de cuentas.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/waf-flight-recorder" target="_blank" rel="noopener">WAF Flight Recorder</a></b><p>Un guardia de seguridad para webs, ajustado para frenar ataques sin echar a clientes reales.</p></div></summary>
+        <div class="story">Puse un firewall de aplicaciones web real delante de una tienda vulnerable a propósito, le lancé ataques clásicos, escribí mis propias reglas y las rompí a propósito. Encontré una falsa alarma real, el enlace de un cliente bloqueado como ataque, y la corregí con la excepción más estrecha posible. 70 tests automáticos reconstruyen el laboratorio y comprueban cada bloqueo y cada acceso permitido.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener">Labs guiados de seguridad</a></b><p>Práctica detectando actividad sospechosa en los registros de un ordenador.</p></div></summary>
+        <div class="story">Laboratorios guiados de Hack The Box Academy: paneles de <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-all-users" target="_blank" rel="noopener">inicios de sesión fallidos</a> y de <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-disableed-users" target="_blank" rel="noopener">intentos en cuentas cerradas</a>, una investigación sobre <a href="https://github.com/albeen-sknight/windows-event-log-investigation" target="_blank" rel="noopener">quién cambió un ajuste de seguridad</a> y un laboratorio sobre los <a href="https://github.com/albeen-sknight/analysing-evil-with-sysmon-event-logs" target="_blank" rel="noopener">rastros que dejan los ataques</a>.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/applyone-" target="_blank" rel="noopener">ApplyOne</a></b><p>Mi propia herramienta para gestionar candidaturas, con la parte privada de verdad privada.</p></div></summary>
+        <div class="story">Un espacio para gestionar candidaturas que alojo yo mismo: una página de portfolio pública delante y un espacio privado detrás que solo yo puedo abrir. Lee mi CV, lo compara con ofertas, sigue cada candidatura y ayuda con cartas de presentación y entrevistas. Las contraseñas y claves no están en el código, cada página privada comprueba quién pregunta y la parte pública no puede ver la privada. Tras publicarlo corregí todos los avisos del escáner de código de GitHub y activé actualizaciones automáticas. <a href="https://applyone.pages.dev" target="_blank" rel="noopener">Web en vivo</a></div></details>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- ===================== فارسی ===================== -->
+<div class="cv" id="cv-fa" lang="fa" dir="rtl" hidden>
+<aside>
+  <div class="name">
+    <h1>آلبرتو</h1>
+    <div class="lang" dir="ltr"><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="es" aria-pressed="false">ES</button><button type="button" data-l="fa" aria-pressed="true">FA</button></div>
+  </div>
+  <div class="where"><span>مادرید، اسپانیا</span></div>
+  <section>
+    <h2>لینک‌ها</h2>
+    <ul>
+      <li><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener" dir="ltr">github.com/albeen-sknight</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>زبان‌ها</h2>
+    <ul><li>فارسی: زبان مادری</li><li>اسپانیایی: دوزبانه</li><li>انگلیسی: C1 (آیلتس ۷٫۰)</li></ul>
+  </section>
+  <section>
+    <h2>مهارت‌های فردی</h2>
+    <ul>
+      <li><details><summary><div><b>آرامش در شرایط فشار</b><span>خون‌دماغ در اردوی صلیب سرخ</span></div></summary>
+        <p class="story">در یک آخر هفته‌ی صلیب سرخ جوانان در اقامتگاه کولادیتو، دماغ یکی از دخترهای گروهم شروع کرد به خون آمدن. او را آرام کردم، سرش را کمی رو به پایین نگه داشتم، جلوی بینی‌اش را گرفتم و قسمت نرم بینی را فشار دادم تا خونریزی بند آمد. مادرش بعد از تماس اول نگران شده بود، برای همین خودم با او حرف زدم: همه‌چیز تحت کنترل است، قبل از برگشتن به خانه یک پزشک معاینه‌اش می‌کند و تمام مدت در جریانش می‌گذارم. همین کار را هم کردم.</p></details></li>
+      <li><details><summary><div><b>قابل‌اعتماد و وقت‌شناس</b><span>اولین کارم، در سویا</span></div></summary>
+        <p class="story">چند هفته بعد از امضای اولین قراردادم، خبر دادند که چهارشنبه باید بروم سویا. ساعت ۶ بیدار شدم و قطار ساعت ۸ را گرفتم. قطار یک ساعت تأخیر داشت، برای همین تمام مسیر مدیرانم را در جریان گذاشتم: چقدر تأخیر داریم، کی سوار تاکسی شدم، چند دقیقه تا محل کار مانده. وقتی رسیدم مستقیم رفتم سر کار، تجهیزات شبکه نصب کردم و پشت تلفن با راهنمایی یکی از همکارانم در جابه‌جایی دستگاه‌های شبکه کمک کردم؛ بدون استراحت تا ساعت ۵ که کار تمام شد. با ده دقیقه فاصله به قطار برگشت رسیدم.</p></details></li>
+      <li><details><summary><div><b>درستکاری</b><span>یک اشتباه در پرداخت</span></div></summary>
+        <p class="story">بعد از تمام شدن قراردادم، یک پرداخت حقوق به‌اشتباه به حسابم واریز شد. به شرکت خبر دادم و برگرداندمش. کار درست همین بود.</p></details></li>
+      <li><details><summary><div><b>ارتباط شفاف</b><span>پشتیبانی حضوری کاربران</span></div></summary>
+        <p class="story">وقتی به کارکنان یک مشتری به‌صورت حضوری پشتیبانی می‌دادم، بیشتر کار حرف زدن با آدم‌ها بود: توضیح دادن مشکل به زبان ساده، گفتن صادقانه‌ی اینکه رفعش چقدر طول می‌کشد، و جواب دادن سریع.</p></details></li>
+      <li><details><summary><div><b>برخورد با مشتری‌های سخت</b><span>مرکز تماس Atento</span></div></summary>
+        <p class="story">در Atento، برای Securitas Direct، تماسی که راحت می‌توانست ۱۵ دقیقه طول بکشد باید حدود ۵ دقیقه تمام می‌شد. تماس‌گیرنده را روی موضوع نگه می‌داشتم و همیشه حرفه‌ای صحبت می‌کردم. اگر کسی خیلی عصبانی زنگ می‌زد، اول او را آرام می‌کردم و بعد راه‌حل پیشنهاد می‌دادم.</p></details></li>
+      <li><details><summary><div><b>فعال و پیش‌قدم</b><span>هفته‌های خلوت در Noneotech</span></div></summary>
+        <p class="story">بعد از دو هفته‌ی خلوت، با مدیرم شوخی کردم که خودم در به در بروم و برای شرکت مشتری پیدا کنم. همان روز من را برای جمعه به وایادولید فرستاد و بعد هم به سویا: «کار می‌خواستی دیگه، نه؟» بله آقا، می‌خواستم. وقتی قراردادم تمام شد، کارهای گاه‌به‌گاه عصر و آخر هفته پیشنهاد داد و گفت برای کسی که جوان است و تجربه ندارد، سریع جا می‌افتم و انگیزه دارم. در Centric هم به‌محض تمام شدن کارهایم، کار بیشتری می‌خواستم.</p></details></li>
+    </ul>
+  </section>
+  <section>
+    <h2>فعالیت داوطلبانه</h2>
+    <ul>
+      <li><details><summary><div><b>Cruz Roja Juventud (صلیب سرخ جوانان)</b><span>داوطلب PINEO | برنامه‌ریزی فعالیت‌ها و هماهنگی تیم · آوریل ۲۰۲۴ تا اکنون · هماهنگ‌کننده‌ی پروژه (۲۰۲۶/۲۷): ۳ داوطلب و ۷ کودک</span></div></summary>
+        <p class="story">PINEO برای کودکان و نوجوانان فعالیت‌های تفریحی و آموزشی برگزار می‌کند. در آماده کردن جلسات هفتگی، وسایل و فضا کمک می‌کنم، با تیم داوطلبان فعالیت‌ها را برنامه‌ریزی می‌کنم، گزارش فعالیت‌ها را ثبت می‌کنم و به داوطلبان تازه‌وارد کمک می‌کنم جا بیفتند. امسال (۲۰۲۶/۲۷) هماهنگ‌کننده‌ی پروژه در یکی از شعبه‌ها هستم، با تیمی از ۳ داوطلب و ۷ کودک، تا جلسات از قبل آماده باشند و بر اساس علاقه‌ی بچه‌ها طراحی شوند.</p></details></li>
+      <li><b style="color:#fff">United Networks</b><br><span class="note" style="font-style:normal">آموزش و منتورینگ | ۲۰۲۲ تا ۲۰۲۳</span></li>
+    </ul>
+  </section>
+</aside>
+
+<main>
+  <section>
+    <h2>پروفایل حرفه‌ای</h2>
+    <p class="headline">متخصص IT و سیستم‌ها | پایه‌ی امنیت سایبری (SOC) | در مسیر AppSec و WAF</p>
+    <p>در حوزه‌ی پشتیبانی IT، سیستم‌ها و شبکه کار می‌کنم و سال آخر ASIR هستم. تابستان ۲۰۲۶ در مادرید و سویا روی شبکه‌های مشتری‌ها کار کردم. در وقت آزادم یک شبکه‌ی مجازی برای یک شرکت ساختم، یک اتاق کنترل امنیتی کنارش گذاشتم و بعد خودم به آن نفوذ کردم تا ببینم می‌توانم خودم را گیر بیندازم یا نه. از هر ده بار، نه بار موفق شدم. <b>امروز:</b> پشتیبانی IT، سیستم‌ها و شبکه. <b>قدم بعدی:</b> عملیات امنیت (SOC).</p>
+    <details class="about"><summary><b>بیشتر درباره‌ی من</b></summary><div class="story"><p>در ۱۳ سالگی، بدون اینکه اسپانیایی یا انگلیسی درست‌وحسابی بلد باشم، به اسپانیا آمدم. آموزش فنی‌وحرفه‌ای همان مسیری شد که راه کاری‌ام را باز کرد: SMR من را برای کارآموزی Erasmus+ به مالت برد و حالا دارم ASIR را تمام می‌کنم.</p><p>یادم هست زیر برج‌های Cuatro Torres در مادرید قدم می‌زدم و تصمیم گرفتم می‌خواهم به کجا برسم: اول سیستم و شبکه، بعد SOC و یک روز امنیت اپلیکیشن و WAF. مسیر CyberSOC در Deloitte این راه را برایم واقعی کرد، چون آدم‌هایی را دیدم که دقیقاً از همین‌جایی که من هستم شروع کرده بودند.</p><p>بعد از آن برنامه نمی‌خواستم تابستان را به انتظار بگذرانم. Noneotech با وجود تجربه‌ی کمم به من فرصت داد و می‌دانستم این اعتماد را باید به دست بیاورم. اگر کاری باید انجام می‌شد، جوابم معمولاً «بله» بود.</p><p>در وقت آزادم همان چیزهایی را می‌سازم که می‌خواهم رویشان کار کنم: داشبوردهای SIEM، بررسی لاگ‌های ویندوز، یک WAF که خودم به آن حمله کردم و تنظیمش کردم، و شبکه‌ی یک شرکت کوچک با اتاق کنترل امنیتی خودش.</p><p><b>اول SOC. اول پایه‌های محکم. بعد AppSec و WAF.</b></p></div></details>
+    <p class="motto">«یاد می‌گیرم، رهبری می‌کنم، پیش می‌روم»</p>
+    <div class="pills" dir="ltr"><span>Windows / Linux</span><span>Active Directory</span><span>Microsoft 365</span><span>شبکه</span><span>Cisco / Meraki</span><span>SIEM (Splunk / Elastic)</span><span>تحلیل لاگ</span><span>MITRE ATT&amp;CK</span><span>WAF / ModSecurity</span></div>
+  </section>
+
+  <section>
+    <h2>سوابق کاری</h2>
+    <p class="hint">برای جزئیات بیشتر روی هر مورد بزنید.</p>
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Noneotech Global Technologies</span><span class="meta">مادرید / سویا | ژوئن ۲۰۲۶ تا سپتامبر ۲۰۲۶</span></div>
+      <div class="role">مهندس پشتیبانی حضوری <em>· قراردادی</em></div></div></summary>
+      <div class="story"><ul>
+        <li>پشتیبانی IT حضوری و کار میدانی در محل مشتری‌ها در مادرید و سویا، همراه با تیم‌های مهندسی از راه دور</li>
+        <li>نصب و تعویض روتر، سوئیچ و اکسس‌پوینت بی‌سیم Cisco و Meraki</li>
+        <li>همکاری با مهندسان از راه دور در پیکربندی دستگاه‌ها، تغییرات شبکه، تست اتصال و رفع اشکال</li>
+        <li>نصب سخت‌افزار، بررسی کابل‌کشی، تأیید سلامت تجهیزات و مستندسازی کار</li>
+        <li>پشتیبانی حضوری موقت از کاربران یک مشتری: Windows، Microsoft 365، Outlook، Teams، پرینتر، لپ‌تاپ و اتصال</li>
+        <li>مدیریت تیکت‌ها، هماهنگی با مشتری و ارجاع مشکل وقتی پشتیبانی بیشتری لازم بود</li>
+        <li>بعد از پایان قرارداد، به من کارهای گاه‌به‌گاه پیشنهاد شد</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Deloitte</span><span class="meta">مادرید | مه ۲۰۲۶</span></div>
+      <div class="role">کارآموز فناوری، مسیر CyberSOC <em>· کارآموزی (FFE)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>برنامه‌ی فناوری در مسیر CyberSOC، با آشنایی با مشاوره، فناوری سازمانی، امنیت سایبری و کار تیمی بین‌رشته‌ای</li>
+        <li>گذراندن آموزش‌های اجباری، به‌علاوه‌ی دوره‌های فنی اختیاری</li>
+        <li>پروژه‌ی تیمی یک وب‌اپلیکیشن؛ بخش من: فرانت‌اند، کاربرپذیری و ارائه</li>
+        <li>کمک به بقیه‌ی شرکت‌کننده‌ها و حل مسئله به‌صورت تیمی</li>
+        <li>بعد از آن، یادگیری SecOps، SIEM، Windows Event Logs و واکنش به حوادث امنیتی را خودم ادامه دادم</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Atento - Securitas Direct</span><span class="meta">مادرید | ژوئیه ۲۰۲۵ تا سپتامبر ۲۰۲۵</span></div>
+      <div class="role">کارشناس پشتیبانی مشتری <em>· پاره‌وقت</em></div></div></summary>
+      <div class="story"><ul>
+        <li>پاسخ به تماس‌ها و پشتیبانی فنی پایه برای خدمات امنیتی، در محیطی پرتماس</li>
+        <li>رفع مشکلات، مستندسازی دقیق و ارجاع موارد پیچیده به تیم‌های تخصصی</li>
+        <li>تماس‌های کوتاه و متمرکز؛ آرام کردن تماس‌گیرنده‌های ناراضی قبل از حل مشکل</li>
+        <li>کار با چند سیستم داخلی، با قوانین سخت‌گیرانه‌ی کیفیت، محرمانگی و امنیت</li></ul></div></details></div>
+
+    <div class="job"><details><summary><div style="flex:1">
+      <div class="jobhead"><span class="org">Centric IT Solutions، مالت</span><span class="meta">سنت پالز بی | مارس ۲۰۲۵ تا مه ۲۰۲۵</span></div>
+      <div class="role">تکنسین IT <em>· کارآموزی Erasmus+ (FCT)</em></div></div></summary>
+      <div class="story"><ul>
+        <li>اولین تجربه‌ی عملی‌ام در IT، خارج از کشور، با سخت‌افزار، سیستم‌ها و کارهای روزمره</li>
+        <li>عیب‌یابی سخت‌افزار و نرم‌افزار، تعویض قطعات و راه‌اندازی کامپیوترها</li>
+        <li>نگهداری، آماده‌سازی تجهیزات و انبارداری</li>
+        <li>بعد از تمام کردن کارهای خودم، کار بیشتری درخواست می‌کردم و همین تجربه‌ام را بیشتر کرد</li></ul></div></details></div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>تحصیلات</h2>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <details class="item"><summary><div><b>ASIR - مدیریت سیستم‌های شبکه</b><span class="meta">IES Clara del Rey | ۲۰۲۵ تا ۲۰۲۷</span><p>IT یک شرکت از درون: سرورها، شبکه، حساب‌های کاربری و امنیت.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">مدرک فنی‌وحرفه‌ای عالی دوساله (سطح ۵ چارچوب صلاحیت‌های اروپا، آموزش عالی کوتاه‌مدت؛ تقریباً هم‌سطح کاردانی). برای راه‌اندازی، نگهداری و محافظت از سیستم‌های IT یک شرکت آموزش می‌دهد.</p><ul>
+<li><b>سرورها:</b> نصب، پیکربندی و مدیریت Windows Server و Linux، همراه با حساب‌های کاربری، دسترسی‌ها و دامنه‌های Active Directory</li>
+<li><b>شبکه:</b> طراحی و مدیریت شبکه‌ی سازمانی: آدرس‌دهی، مسیریابی، سوئیچ، VLAN و سرویس‌هایی مثل DNS، DHCP، وب، ایمیل و اشتراک فایل</li>
+<li><b>پایگاه داده:</b> طراحی پایگاه داده و مدیریت سرورهای پایگاه داده</li>
+<li><b>وب:</b> استقرار و میزبانی وب‌اپلیکیشن‌ها</li>
+<li><b>امنیت و پایداری:</b> فایروال، VPN، پشتیبان‌گیری، محافظت از داده‌های ذخیره‌شده و سرپا نگه داشتن سیستم‌ها وقتی چیزی از کار می‌افتد</li>
+<li>یک پروژه‌ی پایانی و دوره‌ی کارآموزی در شرکت (FFE)</li></ul>
+<p style="margin:6px 0 0">برای نقش‌هایی مثل مدیر سیستم، تکنسین شبکه یا تکنسین پشتیبانی IT آماده می‌کند.</p></div></details>
+        <details class="item"><summary><div><b>SMR - سیستم‌های میکروکامپیوتری و شبکه</b><span class="meta">IES Barajas | ۲۰۲۳ تا ۲۰۲۵</span><p>مونتاژ و تعمیر کامپیوتر، شبکه‌های کوچک و پشتیبانی کاربران. Erasmus+ در مالت.</p></div></summary>
+          <div class="story"><p style="margin:0 0 6px">مدرک فنی‌وحرفه‌ای متوسطه‌ی دوساله (سطح ۴ چارچوب صلاحیت‌های اروپا). سطح تکنسین عملی است: راه انداختن و سرپا نگه داشتن کامپیوترها و شبکه‌ی یک دفتر کوچک.</p><ul>
+<li><b>سخت‌افزار:</b> مونتاژ، ارتقا و تعمیر کامپیوتر و عیب‌یابی</li>
+<li><b>سیستم‌عامل:</b> نصب و پیکربندی Windows و Linux، اول روی کامپیوترهای تکی و بعد در شبکه‌های کوچک با سرور</li>
+<li><b>شبکه‌های کوچک:</b> کابل‌کشی و راه‌اندازی سوئیچ، روتر و WiFi برای یک دفتر</li>
+<li><b>سرویس‌های شبکه:</b> اشتراک فایل، DNS، DHCP، وب و پراکسی، در سطح مقدماتی</li>
+<li><b>مبانی امنیت:</b> آنتی‌ویروس، پشتیبان‌گیری و دسترسی‌های کاربران</li>
+<li>نرم‌افزارهای اداری و وب‌اپلیکیشن‌های ساده</li>
+<li>دوره‌ی کارآموزی در شرکت (FCT) که با Erasmus+ در مالت گذراندم</li></ul>
+<p style="margin:6px 0 0">برای نقش‌هایی مثل تکنسین پشتیبانی IT، هلپ‌دسک یا نصاب کامپیوتر و شبکه آماده می‌کند.</p></div></details>
+      </div>
+    </div>
+    <div>
+      <h2>گواهی‌نامه‌ها</h2>
+      <p class="meta" style="margin:0 0 6px">LinkedIn Learning | ۲۰۲۶</p>
+      <ul style="padding-inline-start:18px;margin:0" dir="ltr">
+        <li>SecOps Essentials: Detection and Response</li>
+        <li>Introduction to SIEM</li>
+        <li>Cybersecurity Threat Landscape</li>
+        <li>Cybersecurity Foundations: GRC</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>پروژه‌های فنی شاخص</h2>
+    <div class="two">
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/soc-in-a-box" target="_blank" rel="noopener">SOC in a Box</a></b><p>یک شرکت فرضی با یک اتاق کنترل امنیتی که مراقبش است. از ده راه مختلف نفوذ کردم؛ نه تایشان آژیر را به صدا درآوردند.</p></div></summary>
+        <div class="story">یک شرکت کوچک ویندوزی ساختم (یک سرور، دو لپ‌تاپ کارمندان و یک فروشگاه اینترنتی) و همه‌ی فعالیت‌هایشان را به Splunk، یک ابزار پایش امنیتی، فرستادم. بعد ده قاعده‌ی شناسایی برای حرکت‌های واقعی مهاجمان نوشتم، از حدس زدن رمز عبور تا پاک کردن لاگ‌ها، و به شرکت خودم حمله کردم. نه هشدار فعال شد و گوشی‌ام را به صدا درآورد. دهمی را محافظت خود ویندوز قبل از اینکه حتی شروع شود متوقف کرد، که بهترین یافته‌ی کل پروژه بود. همچنین فهمیدم شرکت هیچ سیاستی برای قفل شدن حساب‌ها بعد از رمز اشتباه ندارد.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/waf-flight-recorder" target="_blank" rel="noopener">WAF Flight Recorder</a></b><p>یک نگهبان امنیتی برای وب‌سایت‌ها، تنظیم‌شده برای متوقف کردن مهاجمان بدون اینکه مشتری‌های واقعی را پس بزند.</p></div></summary>
+        <div class="story">یک فایروال واقعی برنامه‌های وب (WAF) را جلوی یک فروشگاه که عمداً آسیب‌پذیر ساخته شده گذاشتم، حمله‌های کلاسیک به آن فرستادم، قواعد خودم را نوشتم و عمداً خرابشان کردم. یک هشدار اشتباه واقعی پیدا کردم، لینک خبرنامه‌ی یک مشتری که به‌عنوان حمله مسدود شده بود، و با محدودترین استثنای ممکن درستش کردم. ۷۰ تست خودکار کل آزمایشگاه را از نو می‌سازند و هر مسدودسازی و هر اجازه‌ی عبور را بررسی می‌کنند.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight" target="_blank" rel="noopener">آزمایشگاه‌های امنیتی آموزشی</a></b><p>تمرین تشخیص فعالیت مشکوک در سوابق فعالیت یک کامپیوتر.</p></div></summary>
+        <div class="story">آزمایشگاه‌های آموزشی Hack The Box Academy: داشبوردهایی برای <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-all-users" target="_blank" rel="noopener">ورودهای ناموفق</a> و <a href="https://github.com/albeen-sknight/siem-virtualisation-failed-logon-attempts-disableed-users" target="_blank" rel="noopener">تلاش برای ورود به حساب‌های غیرفعال</a>، بررسی <a href="https://github.com/albeen-sknight/windows-event-log-investigation" target="_blank" rel="noopener">اینکه چه کسی یک تنظیم امنیتی را تغییر داده</a>، و آزمایشگاهی درباره‌ی <a href="https://github.com/albeen-sknight/analysing-evil-with-sysmon-event-logs" target="_blank" rel="noopener">ردهایی که حمله‌ها به جا می‌گذارند</a>.</div></details>
+      <details class="proj"><summary><div><b><a href="https://github.com/albeen-sknight/applyone-" target="_blank" rel="noopener">ApplyOne</a></b><p>ابزار خودم برای پیگیری درخواست‌های کار، طوری ساخته شده که بخش خصوصی واقعاً خصوصی بماند.</p></div></summary>
+        <div class="story">یک فضای کاری برای مدیریت درخواست‌های شغلی که خودم میزبانی‌اش می‌کنم: یک صفحه‌ی نمونه‌کار عمومی در جلو و یک فضای خصوصی در پشت که فقط خودم می‌توانم بازش کنم. رزومه‌ام را می‌خواند، با آگهی‌های شغلی مقایسه می‌کند، همه‌ی درخواست‌ها را پیگیری می‌کند و در نوشتن نامه‌ی همراه و آمادگی برای مصاحبه کمک می‌کند. رمزها و کلیدها داخل کد نیستند، هر صفحه‌ی خصوصی بررسی می‌کند چه کسی درخواست داده و بخش عمومی به بخش خصوصی دسترسی ندارد. بعد از راه‌اندازی، همه‌ی هشدارهای اسکنر کد GitHub را رفع کردم و به‌روزرسانی خودکار را فعال کردم. <a href="https://applyone.pages.dev" target="_blank" rel="noopener">سایت</a></div></details>
+    </div>
+  </section>
+</main>
+</div>
+
+<p class="foot" id="foot">Alberto · 2026</p>
+</div>
+
+<script>
+(function(){
+  var blocks={en:document.getElementById('cv-en'),es:document.getElementById('cv-es'),fa:document.getElementById('cv-fa')};
+  function set(l){
+    Object.keys(blocks).forEach(function(k){blocks[k].hidden = k!==l;});
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.l===l));});
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l);});});
+  /* links inside a summary should open, not toggle the panel */
+  document.querySelectorAll('summary a').forEach(function(a){a.addEventListener('click',function(e){e.stopPropagation();});});
+  var h=location.hash.slice(1); set(blocks[h] ? h : 'en');
+})();
+</script>
+</body>
+</html>
